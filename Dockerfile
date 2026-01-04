@@ -14,8 +14,8 @@ COPY src ./src
 # Build the application
 RUN mvn clean package -DskipTests
 
-# Use OpenJDK 17 for runtime
-FROM openjdk:17-jdk-slim
+# Use OpenJDK 17 JRE for runtime
+FROM openjdk:17-jre-slim
 
 # Set working directory
 WORKDIR /app
