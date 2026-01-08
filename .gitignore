@@ -28,3 +28,6 @@ bin/
 
 # Service Account Keys
 /src/main/resources/serviceAccountKey.json
+
+# Application Properties
+/src/main/resources/application.properties
