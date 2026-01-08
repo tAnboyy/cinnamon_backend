@@ -40,17 +40,15 @@ public class PaymentController {
 
     @PostConstruct
     public void init() {
-        // secretKey = System.getenv("STRIPE_SECRET_KEY");
-        // if (secretKey == null) {
-        //     throw new IllegalStateException("STRIPE_SECRET_KEY environment variable is not set");
-        // }
-        // Stripe.apiKey = secretKey;
-        // logger.info("[PaymentController] Stripe API initialized with key: {}... and API version: {}", 
-        //            secretKey.substring(0, Math.min(10, secretKey.length())), stripeApiVersion);
-    }
-
-    public PaymentController() {
+        // prefer property, fallback to env var
+        if (secretKey == null || secretKey.isBlank()) {
+            secretKey = System.getenv("STRIPE_SECRET_KEY");
+        }
+        if (secretKey == null || secretKey.isBlank()) {
+            throw new IllegalStateException("Stripe secret key not configured via stripe.secret.key property or STRIPE_SECRET_KEY env var");
+        }
         Stripe.apiKey = secretKey;
+        logger.info("[PaymentController] Stripe API initialized with key: {}...", secretKey.substring(0, Math.min(10, secretKey.length())));
     }
 
     /**
