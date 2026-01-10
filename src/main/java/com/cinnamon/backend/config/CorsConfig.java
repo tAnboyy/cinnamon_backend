@@ -18,7 +18,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         config.setAllowedOriginPatterns(Arrays.asList(
-        "https://cinnamonbackend-production.up.railway.app",
+        "https://cinnamon-live.web.app/",
         "http://localhost:3000"
         ));        
         config.setAllowedHeaders(Arrays.asList("*"));
