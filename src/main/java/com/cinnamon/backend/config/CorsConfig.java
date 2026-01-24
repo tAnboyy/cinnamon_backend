@@ -19,7 +19,10 @@ public class CorsConfig {
         config.setAllowCredentials(true);
         config.setAllowedOriginPatterns(Arrays.asList(
         "https://cinnamon-live.web.app/",
-        "http://localhost:3000"
+        "http://localhost:3000",
+        "http://localhost:8081",
+        "https://cinnamon-admin-f6927.web.app/",
+        "http://localhost:8082"
         ));        
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
